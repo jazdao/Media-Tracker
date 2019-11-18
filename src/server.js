@@ -1,6 +1,6 @@
 /**
  * Server.js
- * @summary This will contatin all server side logic for
+ * @summary This will contain all server side logic for
  * calling API's, updating the database, etc.
  * i.e. Things not involved with the frontend.
  */
@@ -215,8 +215,6 @@ app.get('/api/addTitle', (req, res) => {
             if (title) {
                 res.status(202).send("Title already in database.");
             } else {
-                res.status(401).send('Movie added to database successfully');
-                //console.log('Movie added to database successfully')
                 // do nothing; continue adding title
             }
         });
@@ -229,8 +227,6 @@ app.get('/api/addTitle', (req, res) => {
             if (title) {
                 res.status(202).send("Title already in database.");
             } else {
-                res.status(401).send('Show added to database successfully');
-                //console.log('Show added to database successfully')
                 // do nothing; continue adding title
             }
         });
