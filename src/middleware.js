@@ -1,7 +1,9 @@
 // middleware.js
+const functions = require('firebase-functions');
 const jwt = require('jsonwebtoken');
 
-const secret = process.env.MONGO_SECRET;
+const secret = functions.config().mt.mongo_secret;
+//const secret = process.env.mongo_secret;
 
 const withAuth = function (req, res, next) {
     const token =

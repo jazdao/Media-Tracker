@@ -16,6 +16,8 @@ const app = express();
 
 const port = process.env.PORT || 5000;
 
+const functions = require('firebase-functions');
+
 app.use(cors({
     origin: 'http://localhost:3000',
     optionsSuccessStatus: 200,
@@ -30,8 +32,11 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 const User = require('./models/User.js');
 const Movie = require('./models/Movie.js');
 const Show = require('./models/Show.js');
-const mongo_uri = process.env.MONGO_URL;
-const secret = process.env.MONGO_SECRET;
+
+const mongo_uri = functions.config().mt.mongo_url;
+const secret = functions.config().mt.mongo_secret;
+//const mongo_uri = process.env.mongo_url;
+//const secret = process.env.mongo_secret;
 
 mongoose
     .connect(mongo_uri, {
